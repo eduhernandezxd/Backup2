@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.util.Log;
@@ -43,10 +42,8 @@ public class Main2Activity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-
-
         photoImage2 = findViewById(R.id.photoUser2);
-    userName2 = findViewById(R.id.userName2);
+        userName2 = findViewById(R.id.userName2);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
@@ -163,6 +160,10 @@ public class Main2Activity extends AppCompatActivity
         if(result.isSuccess()) {
 
             GoogleSignInAccount account = result.getSignInAccount();
+
+            Log.d("IMAC", account.getDisplayName());
+
+            userName2=findViewById(R.id.userName2);
 
             userName2.setText( account.getDisplayName());
         }
